@@ -1,5 +1,5 @@
 " forward text
-function!textobj#markdown#fence#am()
+function!textobj#markdown#text#am()
 
   " tail
   let tail = search('```\S', 'W')
@@ -24,7 +24,7 @@ function!textobj#markdown#fence#am()
 
 endfunction
 
-function!textobj#markdown#fence#im()
+function!textobj#markdown#text#im()
 
   " tail
   let tail = search('```\S', 'W')
@@ -48,7 +48,7 @@ function!textobj#markdown#fence#im()
 endfunction
 
 " backward text
-function! textobj#markdown#fence#aM()
+function! textobj#markdown#text#aM()
 
   " head
   let head = search('```$', 'Wbc')
@@ -71,7 +71,7 @@ function! textobj#markdown#fence#aM()
 
 endfunction
 
-function! textobj#markdown#fence#iM()
+function! textobj#markdown#text#iM()
 
   " head
   let head = search('```$', 'Wbc')

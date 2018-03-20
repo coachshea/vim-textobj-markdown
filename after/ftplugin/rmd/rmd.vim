@@ -1,13 +1,21 @@
-call textobj#user#plugin('markdown', {
-      \   'fence': {
+call textobj#user#plugin('rmd', {
+      \   'chuck': {
       \     'sfile': expand('<sfile>:p'),
       \     'select-a-function': 'textobj#markdown#chunk#ak',
       \     'select-a': '<buffer>ak',
       \     'select-i-function': 'textobj#markdown#chunk#ik',
       \     'select-i': '<buffer>ik',
+      \     'move-n': '<buffer>]k',
+      \     'move-n-function': 'textobj#markdown#chunk#n',
+      \     'move-p': '<buffer>[k',
+      \     'move-p-function': 'textobj#markdown#chunk#p',
+      \     'move-N': '<buffer>]K',
+      \     'move-N-function': 'textobj#markdown#chunk#N',
+      \     'move-P': '<buffer>[K',
+      \     'move-P-function': 'textobj#markdown#chunk#P',
       \     'region-type': 'V',
       \   },
-      \   'Bfence': {
+      \   'Bchunk': {
       \     'sfile': expand('<sfile>:p'),
       \     'select-a-function': 'textobj#markdown#chunk#aK',
       \     'select-a': '<buffer>aK',
