@@ -1,0 +1,35 @@
+
+call textobj#user#plugin('rmd', {
+      \   'fence': {
+      \     'sfile': expand('<sfile>'),
+      \     'select-a': '<buffer>af',
+      \     'select-a-function': 'textobj#markdown#a_fence',
+      \     'select-i': '<buffer>if',
+      \     'select-i-function': 'textobj#markdown#i_fence',
+      \     'move-n': '<buffer>]f',
+      \     'move-n-function': 'search('''```\S''')',
+      \     'move-p': '<buffer>[f',
+      \     'move-N': '<buffer>]f',
+      \     'move-P': '<buffer>[f',
+      \     'region-type': 'V',
+      \   },
+      \   'md': {
+      \     'sfile': expand('<sfile>'),
+      \     'pattern': '^$',
+      \     'select': ['am', 'im'],
+      \     'move-n': ']m',
+      \     'move-p': '[m',
+      \     'move-N': ']n',
+      \     'move-P': '[n',
+      \     'region-type': 'V',
+      \   },
+      \  'head': {
+      \     'sfile': expand('<sfile>'),
+      \     'pattern': ['^#[^#]', '\n#[^#]'],
+      \     'move-n': ']]',
+      \     'move-p': '[[',
+      \     'move-N': '][',
+      \     'move-P': '[]',
+      \     'region-type': 'V',
+      \},
+      \ })
