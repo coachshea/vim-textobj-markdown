@@ -1,29 +1,34 @@
-let g:textobj_markdown_no_default_key_mappings = 1
-
 call textobj#user#plugin('markdown', {
       \   'fence': {
-      \     'select-a-function': 'textobj#markdown#a_fence',
-      \     'select-a': 'af',
-      \     'select-i-function': 'textobj#markdown#i_fence',
-      \     'select-i': 'if',
+      \     'sfile': expand('<sfile>:p'),
+      \     'select-a-function': 'textobj#markdown#chunk#ak',
+      \     'select-a': '<buffer>ak',
+      \     'select-i-function': 'textobj#markdown#chunk#ik',
+      \     'select-i': '<buffer>ik',
+      \     'region-type': 'V',
       \   },
       \   'Bfence': {
-      \     'select-a-function': 'textobj#markdown#a_bfence',
-      \     'select-a': 'aF',
-      \     'select-i-function': 'textobj#markdown#i_bfence',
-      \     'select-i': 'iF',
+      \     'sfile': expand('<sfile>:p'),
+      \     'select-a-function': 'textobj#markdown#chunk#aK',
+      \     'select-a': '<buffer>aK',
+      \     'select-i-function': 'textobj#markdown#chunk#iK',
+      \     'select-i': '<buffer>iK',
+      \     'region-type': 'V',
       \   },
       \   'text': {
-      \     'select-a-function': 'textobj#markdown#a_text',
-      \     'select-a': 'am',
-      \     'select-i-function': 'textobj#markdown#i_text',
-      \     'select-i': 'im',
+      \     'sfile': expand('<sfile>:p'),
+      \     'select-a-function': 'textobj#markdown#text#am',
+      \     'select-a': '<buffer>am',
+      \     'select-i-function': 'textobj#markdown#text#im',
+      \     'select-i': '<buffer>im',
+      \     'region-type': 'V',
       \   },
-      \   'Btext':
-      \     {
-      \     'select-a-function': 'textobj#markdown#a_Btext',
-      \     'select-a': 'aM',
-      \     'select-i-function': 'textobj#markdown#i_Btext',
-      \     'select-i': 'iM',
+      \   'Btext': {
+      \     'sfile': expand('<sfile>:p'),
+      \     'select-a-function': 'textobj#markdown#text#aM',
+      \     'select-a': '<buffer>aM',
+      \     'select-i-function': 'textobj#markdown#text#iM',
+      \     'select-i': '<buffer>iM',
+      \     'region-type': 'V',
       \   },
       \ })

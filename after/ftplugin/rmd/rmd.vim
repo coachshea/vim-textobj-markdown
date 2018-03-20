@@ -1,35 +1,35 @@
-
-call textobj#user#plugin('rmd', {
+call textobj#user#plugin('markdown', {
       \   'fence': {
-      \     'sfile': expand('<sfile>'),
-      \     'select-a': '<buffer>af',
-      \     'select-a-function': 'textobj#markdown#a_fence',
-      \     'select-i': '<buffer>if',
-      \     'select-i-function': 'textobj#markdown#i_fence',
-      \     'move-n': '<buffer>]f',
-      \     'move-n-function': 'search('''```\S''')',
-      \     'move-p': '<buffer>[f',
-      \     'move-N': '<buffer>]f',
-      \     'move-P': '<buffer>[f',
+      \     'sfile': expand('<sfile>:p'),
+      \     'select-a-function': 'textobj#markdown#chunk#ak',
+      \     'select-a': '<buffer>ak',
+      \     'select-i-function': 'textobj#markdown#chunk#ik',
+      \     'select-i': '<buffer>ik',
       \     'region-type': 'V',
       \   },
-      \   'md': {
-      \     'sfile': expand('<sfile>'),
-      \     'pattern': '^$',
-      \     'select': ['am', 'im'],
-      \     'move-n': ']m',
-      \     'move-p': '[m',
-      \     'move-N': ']n',
-      \     'move-P': '[n',
+      \   'Bfence': {
+      \     'sfile': expand('<sfile>:p'),
+      \     'select-a-function': 'textobj#markdown#chunk#aK',
+      \     'select-a': '<buffer>aK',
+      \     'select-i-function': 'textobj#markdown#chunk#iK',
+      \     'select-i': '<buffer>iK',
       \     'region-type': 'V',
       \   },
-      \  'head': {
-      \     'sfile': expand('<sfile>'),
-      \     'pattern': ['^#[^#]', '\n#[^#]'],
-      \     'move-n': ']]',
-      \     'move-p': '[[',
-      \     'move-N': '][',
-      \     'move-P': '[]',
+      \   'text': {
+      \     'sfile': expand('<sfile>:p'),
+      \     'select-a-function': 'textobj#markdown#text#am',
+      \     'select-a': '<buffer>am',
+      \     'select-i-function': 'textobj#markdown#text#im',
+      \     'select-i': '<buffer>im',
       \     'region-type': 'V',
-      \},
+      \   },
+      \   'Btext': {
+      \     'sfile': expand('<sfile>:p'),
+      \     'select-a-function': 'textobj#markdown#text#aM',
+      \     'select-a': '<buffer>aM',
+      \     'select-i-function': 'textobj#markdown#text#iM',
+      \     'select-i': '<buffer>iM',
+      \     'region-type': 'V',
+      \   },
       \ })
+

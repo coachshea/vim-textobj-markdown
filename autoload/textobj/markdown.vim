@@ -1,37 +1,3 @@
-" forward fence
-function! textobj#markdown#a_fence()
-  let tail = search('```$', 'Wc')
-  let head = search('```\S', 'Wbc')
-  return !head || !tail
-        \ ? 0
-        \ : ['V', [0, head, 1, 0], [0, tail, 1, 0]]
-endfunction
-
-function! textobj#markdown#i_fence()
-  let tail = search('```$', 'Wc')
-  let head = search('```\S', 'Wbc')
-  return !head || !tail
-        \ ? 0
-        \ : ['V', [0, head + 1, 1, 0], [0, tail - 1, 1, 0]]
-endfunction
-
-" backward fence
-function! textobj#markdown#a_bfence()
-  let head = search('```\S', 'Wbc')
-  let tail = search('```$', 'Wc')
-  return !head || !tail
-        \ ? 0
-        \ : ['V', [0, head, 1, 0], [0, tail, 1, 0]]
-endfunction
-
-function! textobj#markdown#i_bfence()
-  let head = search('```\S', 'Wbc')
-  let tail = search('```$', 'Wc')
-  return !head || !tail
-        \ ? 0
-        \ : ['V', [0, head + 1, 1, 0], [0, tail - 1, 1, 0]]
-endfunction
-
 " forward text
 function!textobj#markdown#a_text()
 
