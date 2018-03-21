@@ -1,6 +1,5 @@
 call textobj#user#plugin('markdown', {
-      \   'chuck': {
-      \     'sfile': expand('<sfile>:p'),
+      \   'chunk': {
       \     'select-a-function': 'textobj#markdown#chunk#ak',
       \     'select-a': '<buffer>ak',
       \     'select-i-function': 'textobj#markdown#chunk#ik',
@@ -11,7 +10,6 @@ call textobj#user#plugin('markdown', {
       \     'region-type': 'V',
       \   },
       \   'Bchunk': {
-      \     'sfile': expand('<sfile>:p'),
       \     'select-a-function': 'textobj#markdown#chunk#aK',
       \     'select-a': '<buffer>aK',
       \     'select-i-function': 'textobj#markdown#chunk#iK',
@@ -22,7 +20,6 @@ call textobj#user#plugin('markdown', {
       \     'region-type': 'V',
       \   },
       \   'text': {
-      \     'sfile': expand('<sfile>:p'),
       \     'select-a-function': 'textobj#markdown#text#am',
       \     'select-a': '<buffer>am',
       \     'select-i-function': 'textobj#markdown#text#im',
@@ -33,12 +30,11 @@ call textobj#user#plugin('markdown', {
       \     'region-type': 'V',
       \   },
       \   'Btext': {
-      \     'sfile': expand('<sfile>:p'),
       \     'select-a-function': 'textobj#markdown#text#aM',
       \     'select-a': '<buffer>aM',
       \     'select-i-function': 'textobj#markdown#text#iM',
       \     'select-i': '<buffer>iM',
-      \     'pattern': '\n```\S\|\%^\(```\)\@!',
+      \     'pattern': '\n```\S\|\%$\(```\)\@!',
       \     'move-n': '<buffer>]n',
       \     'move-p': '<buffer>[n',
       \     'region-type': 'V',

@@ -36,7 +36,7 @@ function!textobj#markdown#text#im()
   endif
 
   " head
-  let head = search('```$', 'Wbc')
+  let head = search('```$', 'Wb')
   if !head
     let head = 1
   else
@@ -51,7 +51,7 @@ endfunction
 function! textobj#markdown#text#aM()
 
   " head
-  let head = search('```$', 'Wbc')
+  let head = search('```$', 'Wb')
   if !head
     let head = 1
     exe head
@@ -74,7 +74,7 @@ endfunction
 function! textobj#markdown#text#iM()
 
   " head
-  let head = search('```$', 'Wbc')
+  let head = search('```$', 'Wb')
   if !head
     let head = 1
     exe head
