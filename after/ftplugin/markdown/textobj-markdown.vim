@@ -42,12 +42,12 @@ call textobj#user#plugin('markdown', {
       \     'region-type': 'V',
       \   },
       \   'header': {
-      \     'pattern': '^#[^#]\|^\S.\{-}\n===',
+      \     'pattern': '^#[^#]\|^\S.\{-}\n=\{3,}$',
       \     'move-n': '<buffer>]]',
       \     'move-p': '<buffer>[[',
       \   },
       \   'Sheader': {
-      \     'pattern': '^##[^#]\|^\S.\{-}\n---',
+      \     'pattern': '^##[^#]\|^\S.\{-}\n-\{3,}$',
       \     'move-n': '<buffer>][',
       \     'move-p': '<buffer>[]',
       \   },

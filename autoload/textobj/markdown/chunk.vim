@@ -17,16 +17,11 @@ function! textobj#markdown#chunk#ik()
     return 0
   endif
   let head += 1
-  echom head
   let tail -= 1
-  echom tail
   if tail < head
     return 0
   endif
   return ['V', [0, head, 1, 0], [0, tail, 1, 0]]
-  " return !head || !tail
-  "       \ ? 0
-  "       \ : ['V', [0, head + 1, 1, 0], [0, tail - 1, 1, 0]]
 endfunction
 
 " backward chunk
@@ -50,7 +45,4 @@ function! textobj#markdown#chunk#iK()
     return 0
   endif
   return ['V', [0, head, 1, 0], [0, tail, 1, 0]]
-  " return !head || !tail
-  "       \ ? 0
-  "       \ : ['V', [0, head + 1, 1, 0], [0, tail - 1, 1, 0]]
 endfunction
