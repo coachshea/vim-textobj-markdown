@@ -19,7 +19,6 @@
 Table of Contents
 =================
 
-
 <!-- vim-markdown-toc GFM -->
 
 * [Introduction](#introduction)
@@ -83,16 +82,17 @@ Code Blocks
 ===========
  
 Textobj-Markdown provides text objects and movement maps for working with code
-blocks. 
+blocks. These are sometimes called code chunks or code fences. By any name,
+Textobj-Markdown provides a convenient way to work with these sections.
  
 Code Block Text Objects
 -----------------------
 
-For working with code blocks, Textobj-Markdown provides two sets of mappings.
-By default they are mapped to `if/af` and `iF/aF`. When on or inside of a
-current code block, both of these mappings work on the current block. When
-outside of a code block the `if/af` mappings will search forward for a code
-block and the `iF/aF` mappings will search backward for a code block.
+For operating on code blocks, Textobj-Markdown provides two sets of mappings. By
+default they are mapped to `if/af` and `iF/aF`. When on or inside of a current
+code block, both of these mappings work on the current block. When outside of a
+code block the `if/af` mappings will search forward for a code block and the
+`iF/aF` mappings will search backward for a code block.
 
 ```vim
 " current or next code block
@@ -148,7 +148,7 @@ a code block as well as the next/previous end of a code block.
 ]g " next
 
 " previous block plug
-<plug>(textobj-markdown-chunk-N)
+<plug>(textobj-markdown-chunk-P)
 " default
 [g " previous
 ```
@@ -159,6 +159,9 @@ Text Blocks
 Textobj-Markdown provides text object and movement mappings for the blocks of
 text between code blocks as well.
 
+Text Text Objects
+-----------------
+
 Textobj-Markdown provides two sets of text objects for dealing with the blocks
 of text between code blocks `im/am` and `iM/aM`. As with the code block text
 objects, when within a text block, either set of mappings will work on the
@@ -166,16 +169,17 @@ current text block. If not within a current text block, the `im/am` mappings
 will search forward for the next text block and the `iM/aM` mappings will
 search backward.
 
-Text Text Objects
------------------
-
 ```vim
 " current or next text block
+<plug>(textobj-markdown-text-i)
 im " inside of block
+<plug>(textobj-markdown-text-a)
 am " around block
 
 " current or previous text block
+<plug>(textobj-markdown-Btext-i)
 iM " inside of block
+<plug>(textobj-markdown-Btext-a)
 aM " around block
 ```
 
