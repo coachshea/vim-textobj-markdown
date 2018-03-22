@@ -1,16 +1,13 @@
 " forward chunk
-function! textobj#markdown#chunk#ak()
+function! textobj#markdown#chunk#af()
   let tail = search('```$', 'Wc')
   let head = search('```\S', 'Wb')
-  if !head || !tail
-    return 0
-  endif
   return !head || !tail
         \ ? 0
         \ : ['V', [0, head, 1, 0], [0, tail, 1, 0]]
 endfunction
 
-function! textobj#markdown#chunk#ik()
+function! textobj#markdown#chunk#if()
   let tail = search('```$', 'Wc')
   let head = search('```\S', 'Wb')
   if !head || !tail
@@ -18,14 +15,13 @@ function! textobj#markdown#chunk#ik()
   endif
   let head += 1
   let tail -= 1
-  if tail < head
-    return 0
-  endif
-  return ['V', [0, head, 1, 0], [0, tail, 1, 0]]
+  return tail < head
+        \ ? 0
+        \ : ['V', [0, head, 1, 0], [0, tail, 1, 0]]
 endfunction
 
 " backward chunk
-function! textobj#markdown#chunk#aK()
+function! textobj#markdown#chunk#aF()
   let head = search('```\S', 'Wbc')
   let tail = search('```$', 'W')
   return !head || !tail
@@ -33,7 +29,7 @@ function! textobj#markdown#chunk#aK()
         \ : ['V', [0, head, 1, 0], [0, tail, 1, 0]]
 endfunction
 
-function! textobj#markdown#chunk#iK()
+function! textobj#markdown#chunk#iF()
   let head = search('```\S', 'Wbc')
   let tail = search('```$', 'W')
   if !head || !tail
@@ -41,8 +37,7 @@ function! textobj#markdown#chunk#iK()
   endif
   let head += 1
   let tail -= 1
-  if tail > head
-    return 0
-  endif
-  return ['V', [0, head, 1, 0], [0, tail, 1, 0]]
+  return tail < head
+        \ ? 0
+        \ : ['V', [0, head, 1, 0], [0, tail, 1, 0]]
 endfunction
