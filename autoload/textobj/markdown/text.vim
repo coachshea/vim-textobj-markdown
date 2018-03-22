@@ -11,7 +11,7 @@ function!textobj#markdown#text#am()
   endif
 
   " head
-  let head = search('```$', 'Wbc')
+  let head = search('```$', 'Wb')
   if !head
     let head = 1
   elseif tail == line('$')
@@ -91,4 +91,32 @@ function! textobj#markdown#text#iM()
   endif
 
   return ['V', [0, head, 1, 0], [0, tail, 1, 0]]
+endfunction
+
+" movement helper function
+function! s:move(line)
+  if !a:line || getline(a:line) =~ '```'
+    return 0
+  endif
+  return ['V', [0, a:line, 1, 0], [0, a:line, 1, 0]]
+endfunction
+
+" move forward begin
+function! textobj#markdown#text#n()
+  return s:move(search('```$\n\zs', 'W'))
+endfunction
+
+" move backward begin
+function! textobj#markdown#text#p()
+  return s:move(search('```$\n\zs\|\%^', 'Wb'))
+endfunction
+
+" move forward end
+function! textobj#markdown#text#N()
+  return s:move(search('\n```\S\|\%$', 'W'))
+endfunction
+
+" move backward end
+function! textobj#markdown#text#P()
+  return s:move(search('\n```\S', 'Wb'))
 endfunction
