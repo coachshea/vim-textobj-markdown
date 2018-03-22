@@ -41,7 +41,7 @@ Textobj-Markdown provides text objects and movements for markdown and Rmarkdown
 files. Textobj-Markdown is built upon, and requires [textobj-user][1]. It
 provides default key mappings and movements for code blocks, text between code
 blocks, and three levels of headers. If you choose not to apply the default
-mappings, simply include the following in you vimrc/init.vim:
+mappings, simply include the following in you `vimrc/init.vim`:
 
 ```vim
 " remove default mappings
@@ -199,25 +199,29 @@ Text Movement
 Conflicts with Other Plugins
 ============================
 
-As the list of text-obj plugins grows, there is an ever increasing chance for
-mapping conflicts. One plugin in particular that has a conflict with this one is
-textobj-function, which is one of my favorite textobj-user plugins. The
-functions for the textobj-function plugin are only operative for vim, java, and
-c filetypes, so I did not expect a problem. However, the way the mappings are
-set up is that they are set globally and the function which they call changes
-based on filetype. This design allows the plugin to possibility of expanding to
-cover more filetypes, but does cause a conflict with Textobj-Markdown. I am
-unaware of other plugins that conflict, but it is always possible.
+As the list of text-obj plugins grows, there is an ever increasing chance
+for mapping conflicts. One plugin in particular that has a conflict with
+this one is textobj-function, which is one of my favorite textobj-user
+plugins. The functions for the textobj-function plugin are only operative
+for `vim`, `java`, and `c` filetypes, so I did not expect a problem. However, the
+way the mappings are set up is that they are set globally and the function
+which they call changes based on filetype. This design allows the plugin to
+possibility of expanding to cover more filetypes, but does cause a conflict
+with Textobj-Markdown. I am unaware of other plugins that conflict, but it is
+always possible.
 
 This means that if you use textobj-markdown with textobj-function, you will need
-to map the `if` and `af mappings yourself `However, markdown does not have any
-function and it is certainly possible to create buffer-specific mappings for
-`af` and `if` without affecting the functionality of the textobj-function plugin
-for vim, java, and c files. Simply put the following in you .vimrc or init.vim:
+to map the `af/if` and `aF/iF` mappings yourself. However, markdown does not
+have any function and it is certainly possible to create buffer-specific
+mappings for `af/if` and `aF/iF` without affecting the functionality of the
+textobj-function plugin for `vim`, `java`, and `c` files. Simply put the
+following in you `.vimrc` or `init.vim`:
 
 ```vim
 omap <buffer> af <plug>(textobj-markdown-chunk-a)
 omap <buffer> if <plug>(textobj-markdown-chunk-i)
+omap <buffer> aF <plug>(textobj-markdown-Bchunk-a)
+omap <buffer> iF <plug>(textobj-markdown-Bchunk-i)
 ```
 
 Dependencies
