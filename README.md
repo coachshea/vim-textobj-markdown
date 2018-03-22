@@ -53,7 +53,7 @@ Headers
 =======
 
 Textobj-Markdown provides convenient mappings for moving between different levels
-of headers. Textobj-Markdown uderstand both styles of headers (i.e. #/## or
+of headers. Textobj-Markdown understand both styles of headers (i.e. #/## or
 ===/---). The plug and default mappings are shown below.
 
 ```vim
@@ -136,6 +136,16 @@ for code blocks.
 
 Text Blocks
 ===========
+
+Textobj-Markdown provides text object and movement mappings for the blocks of
+text between code blocks as well.
+
+Textobj-Markdown provides two sets of text objects for dealing with the blocks
+of text between code blocks `im/am` and `iM/aM`. As with the code block text
+objects, when within a text block, either set of mappings will work on the
+current text block. If not within a current text block, the `im/am` mappings
+will search forward for the next text block and the `iM/aM` mappings will
+search backward.
 
 Text Text Objects
 -----------------
