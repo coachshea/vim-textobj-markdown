@@ -16,59 +16,139 @@
                                                                        
                                                                     
 
-## Description
+Table of Contents
+=================
 
 
+<!-- vim-markdown-toc GFM -->
 
-## Usage
+* [Introduction](#introduction)
+* [Headers](#headers)
+* [Code Blocks](#code-blocks)
+  * [Code Block Text Objects](#code-block-text-objects)
+  * [Code Block Movement](#code-block-movement)
+* [Text Blocks](#text-blocks)
+  * [Text Text Objects](#text-text-objects)
+  * [Text Movement](#text-movement)
+* [Dependencies](#dependencies)
+* [License](#license)
 
-By default, the omaps `ir` and `ar` are used for a block; `if` and `af` for a
-function, `ic`, `ac` for a class and `an` for a name.
+<!-- vim-markdown-toc -->
 
-Specifying a count selects outer blocks recursively.
+Introduction
+============
 
-## Customization
+Textobj-Markdown provides text objects and movements for markdown and Rmarkdown
+files. Textobj-Markdown is built upon, and requires [textobj-user][1]. It
+provides default key mappings and movements for code blocks, text between code
+blocks, and three levels of headers. If you choose not to apply the default
+mappings, simply include the following in you vimrc/init.vim:
 
-The variable `g:textobj_ruby_inclusive` controls whether leading comments and a
-single blank line are included in the `a` object if present, defaulting to 1.
+```vim
+" remove default mappings
+let g:__textobj_markdown_no_mappings=1
+```
 
-Consult the documentation of [textobj-user][1] for custom mappings.
+Headers
+=======
 
-If `g:textobj_ruby_inner_branch` is `1`, the inner block object will select the
-lines between `else`, `elsif`, `rescue` and `ensure` (configurable via
-`g:ruby_block_middles`) and the boundaries instead of including all conditional
-branches.
+Textobj-Markdown provides convenient mappings for moving between different levels
+of headers. Textobj-Markdown uderstand both styles of headers (i.e. #/## or
+===/---). The plug and default mappings are shown below.
 
-If `g:textobj_ruby_no_mappings` is `1`, no actual mappings are created.
+```vim
+" level 1 headers
+" # Header
+" or
+" Header
+" =====
+]] "next
+[[ "previous
 
-## Details
+"level 2 headers
+" ## Sub Header
+" or
+" Sub Header
+" ----------
+][ "next
+[] "previous
 
-The plugin uses a consistent line based approach, with the lines containing the
-delimiters being part of the block.
-This means that invoking the text object on the word before a `do` will select
-the block opened by it, which is especially useful on empty blocks.
-When the `ir` object is used on the opener line, the selection will begin on
-the next line.
+" level 3 headers
+" ### Sub Sub Header
+]} "next
+[{ "previous
+```
 
-The reason for inclusive mode is that when deleting or copying a function, you
-most likely want to paste it somewhere else and not leave an additional empty
-line around (given that you separate all functions by a single blank line).
-Comments directly above a block are most likely connected to it, so leaving
-them would be impractical.
+Code Blocks
+===========
 
-When invoked multiple times in visual mode, the selection grows to the next
-larger block, just like when invoking the operator with a count.
-To decide whether to grow, the visual selection is checked – if start and end
-do not match, it is assumed that the selection is already a block.
-This can result in faulty behaviour when invoked from visual mode with o
-nonzero selection and the cursor on the end delimiter line – the next outer
-block will be selected.
+Code Block Text Objects
+-----------------------
 
-## Dependencies
+
+Textobj-Markdown provides
+
+```vim
+" current or next code block
+if " inside of block
+af " around block
+
+" current or previous code block
+iF " inside of block
+aF " around block
+```
+
+Code Block Movement
+-------------------
+
+Textobj-Markdown also provides convenient mappings to move beteen code blocks.
+
+```vim
+" start of code block
+]f " next
+[f " previous
+
+" end of code block
+]g " next
+[g " previous
+```
+
+Text Blocks
+===========
+
+Text Text Objects
+-----------------
+
+```vim
+" current or next code block
+if " inside of block
+af " around block
+
+" current or previous code block
+iF " inside of block
+aF " around block
+```
+
+Text Movement
+-------------
+
+```vim
+" start of text block
+]m " next
+[m " previous
+
+" end of text block
+]n " next
+[n " previous
+```
+
+Dependencies
+============
 
 [textobj-user][1]
 
-## License
+License
+=======
 
 Copyright (c) Torsten Schmits. Distributed under the terms of the [MIT
 License][2].
