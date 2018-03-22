@@ -81,16 +81,18 @@ of headers. Textobj-Markdown understand both styles of headers (i.e. #/## or
 
 Code Blocks
 ===========
-
+ 
+Textobj-Markdown provides text objects and movement maps for working with code
+blocks. 
+ 
 Code Block Text Objects
 -----------------------
 
-Textobj-Markdown provides text objects and movement maps for working with code
-blocks. There are two sets of mappings for working with code blocks. By default
-the are mapped to `if/af` and `iF/aF`. When on or inside of a current code block,
-both of these mappings work on the current block. When outside of a code block
-the `if/af` mappings will search forward for a code block and the `iF/aF` mappings
-will search backward for a code block.
+For working with code blocks, Textobj-Markdown provides two sets of mappings.
+By default they are mapped to `if/af` and `iF/aF`. When on or inside of a
+current code block, both of these mappings work on the current block. When
+outside of a code block the `if/af` mappings will search forward for a code
+block and the `iF/aF` mappings will search backward for a code block.
 
 ```vim
 " current or next code block
@@ -122,15 +124,32 @@ Code Block Movement
 -------------------
 
 In addition to text objects, Textobj-Markdown also provides movement mappings
-for code blocks.
+for code blocks. Mappings are provided which for to the next/previous start of
+a code block as well as the next/previous end of a code block.
 
 ```vim
 " start of code block
+
+" next block plug
+<plug>(textobj-markdown-chunk-n)
+" default
 ]f " next
+
+" previous block plug
+<plug>(textobj-markdown-chunk-p)
+" default
 [f " previous
 
 " end of code block
+
+" next block plug
+<plug>(textobj-markdown-chunk-N)
+" default
 ]g " next
+
+" previous block plug
+<plug>(textobj-markdown-chunk-N)
+" default
 [g " previous
 ```
 
