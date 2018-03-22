@@ -85,23 +85,40 @@ Code Blocks
 Code Block Text Objects
 -----------------------
 
-
-Textobj-Markdown provides
+Textobj-Markdown provides text objects and movement maps for working with code
+blocks. There are two sets of mappings for workign with code blocks. By default
+the are mapped to `if/af` and `iF/aF`. When on or inside of a current code block,
+both of these mappings work on the currnt block. When outside of a code block
+the `if/af` mappings will search forward for a code block and the `iF/aF` mappings
+will search backward for a code block.
 
 ```vim
 " current or next code block
-if " inside of block
-af " around block
+
+" inside of block
+<plug>
+if
+  
+"around block
+<plug>
+af
 
 " current or previous code block
-iF " inside of block
-aF " around block
+
+" inside of block
+<plug>
+iF
+
+"around block
+<plug>
+aF
 ```
 
 Code Block Movement
 -------------------
 
-Textobj-Markdown also provides convenient mappings to move beteen code blocks.
+In addition to the text objects, Textobj-Markdown also provides movement
+mappings for code blocks.
 
 ```vim
 " start of code block
@@ -120,13 +137,13 @@ Text Text Objects
 -----------------
 
 ```vim
-" current or next code block
-if " inside of block
-af " around block
+" current or next text block
+im " inside of block
+am " around block
 
-" current or previous code block
-iF " inside of block
-aF " around block
+" current or previous text block
+iM " inside of block
+aM " around block
 ```
 
 Text Movement
