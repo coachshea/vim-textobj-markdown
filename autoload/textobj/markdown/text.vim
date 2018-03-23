@@ -1,6 +1,6 @@
 " object helper
 function! s:object(head, tail)
-  return tail > head
+  return tail < head
         \ ? 0
         \ : ['V', [0, head, 1, 0], [0, tail, 1, 0]]
 endfunction
@@ -9,25 +9,21 @@ endfunction
 function!textobj#markdown#text#am()
 
   " tail
-  let tail = search('```\S', 'W')
-  if !tail
-    let tail = line('$')
-    exe tail
-  else
-    let tail -= 1
+  let tail = search('\n```\S\|\%$', 'Wc')
+  if getline(tail) =~ '```'
+    return 0
   endif
 
   " head
-  let head = search('```$', 'Wb')
-  if !head
-    let head = 1
-  elseif tail == line('$')
+  let head = search('```$\n\zs\|\%^', 'Wb')
+  if tail != line('$') && head != 1
     let head += 1
-  else
-    let head += 2
+  endif
+  if getline(head) =~ '```'
+    return 0
   endif
 
-  return tail > head
+  return tail < head
         \ ? 0
         \ : ['V', [0, head, 1, 0], [0, tail, 1, 0]]
 
@@ -52,7 +48,7 @@ function!textobj#markdown#text#im()
     let head += 2
   endif
 
-  return tail > head
+  return tail < head
         \ ? 0
         \ : ['V', [0, head, 1, 0], [0, tail, 1, 0]]
 
@@ -78,7 +74,7 @@ function! textobj#markdown#text#aM()
     let tail -= 1
   endif
 
-  return tail > head
+  return tail < head
         \ ? 0
         \ : ['V', [0, head, 1, 0], [0, tail, 1, 0]]
 
@@ -103,7 +99,7 @@ function! textobj#markdown#text#iM()
     let tail -= 2
   endif
 
-  return tail > head
+  return tail < head
         \ ? 0
         \ : ['V', [0, head, 1, 0], [0, tail, 1, 0]]
 
