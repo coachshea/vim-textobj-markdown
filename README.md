@@ -57,13 +57,6 @@ levels of headers and also provides a mapping to move to the next header of
 any level. Textobj-Markdown understand both styles of headers (i.e. #/## or
 ===/---). The plug and default mappings are shown below.
 
-
-
-
-
-
-
-
 ```vim
 " level 1 headers
 " # Header
@@ -79,7 +72,6 @@ any level. Textobj-Markdown understand both styles of headers (i.e. #/## or
 ]] "next
 [[ "previous
 
------
 "level 2 headers
 " ## Sub Header
 " or
@@ -94,7 +86,6 @@ any level. Textobj-Markdown understand both styles of headers (i.e. #/## or
 ][ "next
 [] "previous
 
------
 " level 3 headers
 " ### Sub Sub Header
 
@@ -106,7 +97,6 @@ any level. Textobj-Markdown understand both styles of headers (i.e. #/## or
 ]} "next
 [{ "previous
 
------
 " general
 " any level of header
 
