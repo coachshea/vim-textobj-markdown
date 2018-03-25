@@ -71,7 +71,9 @@ any level. Textobj-Markdown understand both styles of headers (i.e. #/## or
 " default
 ]] "next
 [[ "previous
+```
 
+```vim
 "level 2 headers
 " ## Sub Header
 " or
@@ -85,7 +87,9 @@ any level. Textobj-Markdown understand both styles of headers (i.e. #/## or
 " default
 ][ "next
 [] "previous
+```
 
+```vim
 " level 3 headers
 " ### Sub Sub Header
 
@@ -96,6 +100,9 @@ any level. Textobj-Markdown understand both styles of headers (i.e. #/## or
 " default
 ]} "next
 [{ "previous
+```
+
+```vim
 
 " general
 " any level of header
