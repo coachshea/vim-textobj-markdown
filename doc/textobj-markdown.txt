@@ -29,12 +29,14 @@ Contents
   References ................................. |textobj-markdown-references|
 
 ==============================================================================
-                                               *textobj-markdown-introduction*
-Introduction
+INTRODUCTION                                   *textobj-markdown-introduction*
+
+Textobj-Markdown provides text objects and movement mappings for working with
+markdown files. These include working with code fences, the text between
+fences and movement between headings of different levels.
 
 ==============================================================================
-                                               *textobj-markdown-text-objects*
-Text Objects
+TEXT OBJECTS                                   *textobj-markdown-text-objects*
 
 af
       around the current fence, if not in a fence,
@@ -84,8 +86,7 @@ iM
       searches backward for a text block
 
 ==============================================================================
-                                                  *textobj-markdown-movements*
-Movements
+MOVEMENTS                                         *textobj-markdown-movements*
 
 ]]
 [[
@@ -114,7 +115,14 @@ Movements
       i.e.
         ### Sub Sub Header
 
-]f
+
+
+]h
+[h
+
+      next/previous header of any level
+
+
 [f
 
       next/previous start of code fence

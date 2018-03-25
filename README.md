@@ -40,8 +40,8 @@ Introduction
 
 Textobj-Markdown provides text objects and movements for markdown and Rmarkdown
 files. Textobj-Markdown is built upon, and requires [textobj-user][1]. It
-provides default key mappings and movements for code blocks, text between code
-blocks, and three levels of headers. If you choose not to apply the default
+provides default key mappings and movements for code fences, text between code
+fences, and three levels of headers. If you choose not to apply the default
 mappings, simply include the following in you `vimrc/init.vim`:
 
 ```vim
@@ -202,7 +202,7 @@ Text Text Objects
 -----------------
 
 Textobj-Markdown provides two sets of text objects for dealing with the blocks
-of text between code blocks `im/am` and `iM/aM`. As with the code block text
+of text between code blocks `im/am` and `iM/aM`. As with the code fences text
 objects, when within a text block, either set of mappings will work on the
 current text block. If not within a current text block, the `im/am` mappings
 will search forward for the next text block and the `iM/aM` mappings will

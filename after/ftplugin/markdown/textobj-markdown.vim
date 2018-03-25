@@ -56,4 +56,9 @@ call textobj#user#plugin('markdown', {
       \     'move-n': '<buffer>]}',
       \     'move-p': '<buffer>[{',
       \   },
+      \   'Gheader': {
+      \     'pattern': '^#\+\|^\S.\{-}\n=\{3,}$\|^\S.\{-}\n-\{3,}$',
+      \     'move-n': '<buffer>]h',
+      \     'move-p': '<buffer>[h',
+      \   },
       \ })
