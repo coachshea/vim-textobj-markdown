@@ -1,56 +1,49 @@
-" object helper
-function! s:object(head, tail)
-  return tail < head
-        \ ? 0
-        \ : ['V', [0, head, 1, 0], [0, tail, 1, 0]]
-endfunction
-
 " forward text
 function!textobj#markdown#text#am()
 
   " tail
-  let tail = search('\n```\S\|\%$', 'Wc')
-  if getline(tail) =~ '```'
+  let l:tail = search('\n```\S\|\%$', 'Wc')
+  if getline(l:tail) =~ '```'
     return 0
   endif
 
   " head
-  let head = search('```$\n\zs\|\%^', 'Wb')
-  if tail != line('$') && head != 1
-    let head += 1
+  let l:head = search('```$\n\zs\|\%^', 'Wb')
+  if l:tail != line('$') && head != 1
+    let l:head += 1
   endif
-  if getline(head) =~ '```'
+  if getline(l:head) =~ '```'
     return 0
   endif
 
-  return tail < head
+  return l:tail < l:head
         \ ? 0
-        \ : ['V', [0, head, 1, 0], [0, tail, 1, 0]]
+        \ : ['V', [0, l:head, 1, 0], [0, l:tail, 1, 0]]
 
 endfunction
 
 function!textobj#markdown#text#im()
 
   " tail
-  let tail = search('```\S', 'W')
-  if !tail
-    let tail = line('$')
-    exe tail
+  let l:tail = search('```\S', 'W')
+  if !l:tail
+    let l:tail = line('$')
+    exe l:tail
   else
-    let tail -= 2
+    let l:tail -= 2
   endif
 
   " head
-  let head = search('```$', 'Wb')
-  if !head
-    let head = 1
+  let l:head = search('```$', 'Wb')
+  if !l:head
+    let l:head = 1
   else
-    let head += 2
+    let l:head += 2
   endif
 
-  return tail < head
+  return l:tail < l:head
         \ ? 0
-        \ : ['V', [0, head, 1, 0], [0, tail, 1, 0]]
+        \ : ['V', [0, l:head, 1, 0], [0, l:tail, 1, 0]]
 
 endfunction
 
@@ -58,50 +51,50 @@ endfunction
 function! textobj#markdown#text#aM()
 
   " head
-  let head = search('```$', 'Wb')
-  if !head
-    let head = 1
-    exe head
+  let l:head = search('```$', 'Wb')
+  if !l:head
+    let l:head = 1
+    exe l:head
   else
-    let head += 2
+    let l:head += 2
   endif
 
   " tail
-  let tail = search('```\S', 'W')
-  if !tail
-    let tail = line('$')
+  let l:tail = search('```\S', 'W')
+  if !l:tail
+    let l:tail = line('$')
   else
-    let tail -= 1
+    let l:tail -= 1
   endif
 
-  return tail < head
+  return l:tail < l:head
         \ ? 0
-        \ : ['V', [0, head, 1, 0], [0, tail, 1, 0]]
+        \ : ['V', [0, l:head, 1, 0], [0, l:tail, 1, 0]]
 
 endfunction
 
 function! textobj#markdown#text#iM()
 
   " head
-  let head = search('```$', 'Wb')
-  if !head
-    let head = 1
-    exe head
+  let l:head = search('```$', 'Wb')
+  if !l:head
+    let l:head = 1
+    exe l:head
   else
-    let head += 2
+    let l:head += 2
   endif
 
   " tail
-  let tail = search('```\S', 'W')
-  if !tail
-    let tail = line('$')
+  let l:tail = search('```\S', 'W')
+  if !l:tail
+    let l:tail = line('$')
   else
-    let tail -= 2
+    let l:tail -= 2
   endif
 
-  return tail < head
+  return l:tail < l:head
         \ ? 0
-        \ : ['V', [0, head, 1, 0], [0, tail, 1, 0]]
+        \ : ['V', [0, l:head, 1, 0], [0, l:tail, 1, 0]]
 
 endfunction
 
@@ -112,12 +105,6 @@ function! s:move(line)
   endif
   return ['V', [0, a:line, 1, 0], [0, a:line, 1, 0]]
 endfunction
-
-" function! s:move(line)
-"   return !a:line || getline(a:line) =~ '```'
-"         \ ? 0
-"         \ : ['V', [0, a:line, 1, 0], [0, a:line, 1, 0]]
-" endfunction 
 
 " move forward begin
 function! textobj#markdown#text#n()
