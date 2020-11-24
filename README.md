@@ -46,7 +46,7 @@ mappings, simply include the following in you `vimrc/init.vim`:
 
 ```vim
 " remove default mappings
-let g:__textobj_markdown_no_mappings=1
+let g:textobj_markdown_no_default_key_mappings=1
 ```
 
 Headers
